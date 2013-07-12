@@ -1,0 +1,66 @@
+@mixin borderRadius ($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius:    $radius;
+  border-radius:         $radius;
+  zoom: 1;
+}
+
+@mixin opacity ($value: 0.5) {
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" ($value * 100) ")";
+  filter: alpha(opacity= $value * 100 );
+  zoom: 1;
+}
+
+@mixin shadow ($shadows...) {
+  -webkit-box-shadow: $shadows;
+  -moz-box-shadow:    $shadows;
+  box-shadow:         $shadows;
+}
+
+@mixin transform ($transforms...) {
+  -webkit-transform: $transforms;
+  -moz-transform:    $transforms;
+  -ms-transform:     $transforms;
+  -o-transform:      $transforms;
+  transform:         $transforms;
+}
+
+@mixin transition ($transitions...) {
+  -webkit-transition: $transitions;
+  -moz-transition:    $transitions;
+  -ms-transition:     $transitions;
+  -o-transition:      $transitions;
+  transition:         $transitions;
+}
+
+@mixin simpleGradient ($startColor, $midColor, $colorStop, $endColor) {
+  background: $startColor; // Old browsers
+  background: -moz-linear-gradient(top, $startColor 0%, $midColor $colorStop, $endColor 100%); // FF3.6+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$startColor), color-stop($colorStop,$midColor), color-stop(100%,$endColor)); // Chrome,Safari4+
+  background: -webkit-linear-gradient(top, $startColor 0%,$midColor $colorStop,$endColor 100%); // Chrome10+,Safari5.1+
+  background: -o-linear-gradient(top, $startColor 0%,$midColor $colorStop,$endColor 100%); // Opera 11.10+
+  background: -ms-linear-gradient(top, $startColor 0%,$midColor $colorStop,$endColor 100%); // IE10+
+  background: linear-gradient(to bottom, $startColor 0%,$midColor $colorStop,$endColor 100%); // W3C
+}
+
+@mixin complexGradient ($startColor, $secondColor, $colorStop1, $thirdColor, $colorStop2, $fourthColor, $colorStop3, $fifthColor, $colorStop4, $sixthColor, $colorStop5, $endColor) {
+  background-color: $endColor;
+  background-repeat: no-repeat;
+  background-image: -moz-linear-gradient(top, $startColor 0%, $secondColor $colorStop1, $thirdColor $colorStop2, $fourthColor $colorStop3, $fifthColor $colorStop4, $sixthColor $colorStop5, $endColor 100%); // FF3.6+
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$startColor), color-stop($colorStop1,$secondColor), color-stop($colorStop2,$thirdColor), color-stop($colorStop3,$fourthColor), color-stop($colorStop4,$fifthColor), color-stop($colorStop5,$sixthColor), color-stop(100%,$endColor)); // Chrome,Safari4+
+  background-image: -webkit-linear-gradient(top, $startColor 0%,$secondColor $colorStop1,$thirdColor $colorStop2,$fourthColor $colorStop3,$fifthColor $colorStop4,$sixthColor $colorStop5,$endColor 100%); // Chrome10+,Safari5.1+
+  background-image: -o-linear-gradient(top, $startColor 0%, $secondColor $colorStop1, $thirdColor $colorStop2, $fourthColor $colorStop3, $fifthColor $colorStop4, $sixthColor $colorStop5, $endColor 100%); // Opera 11.10+
+  background-image: -ms-linear-gradient(top, $startColor 0%, $secondColor $colorStop1, $thirdColor $colorStop2, $fourthColor $colorStop3, $fifthColor $colorStop4, $sixthColor $colorStop5, $endColor 100%); // IE10+
+  background-image: linear-gradient(to bottom, $startColor 0%, $secondColor $colorStop1, $thirdColor $colorStop2, $fourthColor $colorStop3, $fifthColor $colorStop4, $sixthColor $colorStop5, $endColor 100%); // W3C
+}
+
+@mixin gradientWithImage ($startColor, $secondColor, $colorStop1, $thirdColor, $colorStop2, $fourthColor, $colorStop3, $endColor, $image) {
+  background: $image repeat; // Old browsers
+  background: $image repeat, -moz-linear-gradient(top, $startColor 0%, $secondColor $colorStop1, $thirdColor $colorStop2, $fourthColor $colorStop3, $endColor 100%); // FF3.6+
+  background: $image repeat, -webkit-gradient(linear, left top, left bottom, color-stop(0%,$startColor), color-stop($colorStop1,$secondColor), color-stop($colorStop2,$thirdColor), color-stop($colorStop3,$fourthColor), color-stop(100%,$endColor)); // Chrome,Safari4+
+  background: $image repeat, -webkit-linear-gradient(top, $startColor 0%,$secondColor $colorStop1,$thirdColor $colorStop2,$fourthColor $colorStop3,$endColor 100%); // Chrome10+,Safari5.1+
+  background: $image repeat, -o-linear-gradient(top, $startColor 0%,$secondColor $colorStop1,$thirdColor $colorStop2,$fourthColor $colorStop3,$endColor 100%); // Opera 11.10+
+  background: $image repeat, -ms-linear-gradient(top, $startColor 0%,$secondColor $colorStop1,$thirdColor $colorStop2,$fourthColor $colorStop3,$endColor 100%); // IE10+
+  background: $image repeat, linear-gradient(to bottom, $startColor 0%,$secondColor $colorStop1,$thirdColor $colorStop2,$fourthColor $colorStop3,$endColor 100%); // W3C 
+}
