@@ -4,7 +4,7 @@
   @for $i from 0 to $maxSelectors {
     $nSelector: $selector;
     @for $j from $start to $i {
-      $nSelector: $selector + '+' + $Nselector;
+      $nSelector: $selector + '+' + $nSelector;
     }
     @if (($f1 == 'even') and ($i % 2 == 0)) {
       #{$nSelector} {@content} 
