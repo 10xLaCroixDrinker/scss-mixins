@@ -1,0 +1,35 @@
+@mixin nth-child ($f1, $n, $f2, $selector, $maxSelectors: 10) {
+  $start: 1;
+  @if type-of($f1) == 'number' {
+    @if $f1 < 0 {$start: 0;}
+  }
+  @for $i from 0 to $maxSelectors {
+    $nSelector: $selector;
+    @for $j from $start to $i {
+      $nSelector: $selector + '+' + $nSelector;
+    }
+    @if (($f1 == 'even') and ($i % 2 == 0)) {
+      #{$nSelector} {@content} 
+    } @else if (($f1 == 'odd') and ($i % 2 !=0)) {
+      #{$nSelector} {@content}
+    } @else {
+        @if $n == 'true'{
+          @if $f1 < 0 and $f1 * $i + $f2 > 0 {
+            #{$nSelector} {
+              @content;
+              content: "#{$f1},#{$i},#{($f1 * $i) + $f2}";
+            }
+          }@else if $f1 > 0 and ($i - $f2) % $f1 == 0 {
+            #{$nSelector} {
+              @content;
+              content: "#{$f1},#{$i - $f2},#{($f1 * $i) % $f1 == 0}";
+            }
+          }
+        } @else {
+          @if $f1 + $f2 == $i {
+            #{$nSelector} {@content;}
+        }
+      }
+    }  
+  }
+}

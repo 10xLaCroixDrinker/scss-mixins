@@ -1,0 +1,36 @@
+@mixin backgroundCover {
+  -webkit-background-size: cover;
+  -moz-background-size:    cover;
+  -o-background-size:      cover;
+  background-size:         cover;
+}
+
+@mixin hideText {
+  color: transparent;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+
+@mixin hyphens($value) {
+  // -o- and -ms- are currently unsupported; putting them in for future proofing
+  -o-hyphens:      $value;
+  -ms-hyphens:     $value;
+  -moz-hyphens:    $value;
+  -webkit-hyphens: $value;
+  hyphens:         $value;
+}
+
+
+@mixin reset {
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+}
+
+@mixin sprite ($x, $y, $width, $height, $display: inline-block, $path: '/images/sprite.png') {
+  background: url($path) $x $y no-repeat;
+  display: $display;
+  height: $height;
+  width: $width;
+}
