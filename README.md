@@ -1,4 +1,3 @@
-scss-mixins
-===========
+# SCSS Mixins
 
-Some useful SCSS mixins
+A small library of useful SCSS mixins.
