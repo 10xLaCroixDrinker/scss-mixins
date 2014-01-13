@@ -29,7 +29,7 @@
 }
 
 @mixin sprite ($x, $y, $width, $height, $display: inline-block, $path: '/images/sprite.png') {
-  background: url($path) $x $y no-repeat;
+  background: url(#{$path}) $x $y no-repeat;
   display: $display;
   height: $height;
   width: $width;
