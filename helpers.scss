@@ -29,8 +29,26 @@
 }
 
 @mixin sprite ($x, $y, $width, $height, $display: inline-block, $path: '/images/sprite.png') {
-  background: url($path) $x $y no-repeat;
+  background: url(#{$path}) $x $y no-repeat;
   display: $display;
   height: $height;
   width: $width;
+}
+
+@mixin clearFix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin verticalAlign {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform:    translateY(-50%);
+  -o-transform:      translateY(-50%);
+  -ms-transform:     translateY(-50%);
+  transform:         translateY(-50%);
 }
