@@ -64,3 +64,11 @@
   background: $image repeat, -ms-linear-gradient(top, $startColor 0%,$secondColor $colorStop1,$thirdColor $colorStop2,$fourthColor $colorStop3,$endColor 100%); // IE10+
   background: $image repeat, linear-gradient(to bottom, $startColor 0%,$secondColor $colorStop1,$thirdColor $colorStop2,$fourthColor $colorStop3,$endColor 100%); // W3C 
 }
+
+@mixin textGradient ($from, $to) {
+  // Webkit only
+  background: -webkit-linear-gradient($from, $to);
+  color: mix($from, $to); // Fallback for non-Webkit browsers
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
